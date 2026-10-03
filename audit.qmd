@@ -1,6 +1,6 @@
 ---
 title: "Do chatbots sound equally sure in French and in Arabic?"
-subtitle: "A pilot audit of expressed certainty in ChatGPT and Gemini"
+subtitle: "A small audit of expressed certainty in ChatGPT and Gemini"
 author: "Houda Es-sqalli"
 date: 2026-10-03
 format:
@@ -13,16 +13,17 @@ execute:
   message: false
 ---
 
-# Why this pilot
+# Why this audit
 
-My PhD proposal asks whether the certainty a chatbot expresses changes
-whether people check information before passing it on. Before testing that
-on people, I need to know what certainty cues users actually meet, and
-whether they differ by language. This pilot is a first, small look at that
-question: 10 questions, 2 languages, 2 chatbots, 40 answers.
+When people ask a chatbot about health or public services, the answer can
+sound sure or cautious. That tone may shape whether they check it before
+passing it on. Before asking that question about people, I wanted to know
+what certainty cues users actually meet, and whether they differ by
+language. This is a first, small look: 10 questions, 2 languages,
+2 chatbots, 40 answers.
 
-It is a pilot. The point is to test the pipeline and the lexicon, not to
-draw conclusions about the chatbots.
+It is a small study. The point is to test the pipeline and the lexicon, not
+to draw conclusions about the chatbots.
 
 ```{r setup}
 library(dplyr)
@@ -276,7 +277,7 @@ ChatGPT hedges more than Gemini.
   French–Arabic gap could come from the lexicon, not from the chatbots.
   The validation and version 2 reduce this risk but do not remove it.
 - The second coding was model-assisted. Independent human coding, ideally
-  two coders per language, is needed before any claim goes beyond the pilot.
+  two coders per language, is needed before any claim goes beyond this first look.
 - A word list misses certainty carried by structure (lists of steps, bold
   text, a flat "Non." on its own line). The flat-opening variable only
   partly covers this.
