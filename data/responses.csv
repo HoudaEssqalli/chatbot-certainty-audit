@@ -1,0 +1,369 @@
+id,question_id,domain,language,chatbot,model,date,question,response,web_sources
+R01,Q01,health,FR,ChatGPT,default (logged out),2026-10-03,"Le vaccin contre le HPV est-il gratuit au Maroc, et pour qui ?","Oui. Au Maroc, le vaccin contre le HPV est pris en charge gratuitement dans le cadre du Programme National d’Immunisation, pour la population ciblée par le programme. Le ministère indique actuellement que la vaccination contre le HPV fait partie des actions nationales de prévention du cancer du col de l’utérus.
+
+Qui peut l’avoir gratuitement ?
+
+Les filles âgées de 11 ans constituent actuellement la cible explicitement indiquée par le ministère marocain dans le programme national.
+
+La vaccination est proposée dans les structures de santé publiques dans le cadre du programme national de vaccination. Le ministère précise que les vaccins du calendrier national sont disponibles gratuitement dans les centres de santé relevant du ministère.
+
+À noter : cela ne signifie pas que le vaccin est gratuit pour toute personne de tout âge. Pour une adolescente ou une femme en dehors de la tranche ciblée, il faut vérifier les conditions de prise en charge et la disponibilité auprès d'un centre de santé.
+
+Si vous me donnez l'âge de la personne concernée (par exemple 12, 15, 20 ou 30 ans), je peux vous dire ce qui s'applique au Maroc actuellement et où s'adresser.",yes
+R02,Q02,health,FR,ChatGPT,default (logged out),2026-10-03,Les antibiotiques soignent-ils la grippe ?,"Non. Les antibiotiques ne soignent pas la grippe, car la grippe est causée par un virus, tandis que les antibiotiques agissent contre les bactéries.
+
+Ils peuvent toutefois être prescrits si une infection bactérienne secondaire apparaît, par exemple une pneumonie bactérienne.
+
+Pour une grippe simple, le traitement repose surtout sur le repos, l’hydratation et le soulagement des symptômes. Certains antiviraux peuvent être utiles dans certaines situations, notamment s’ils sont commencés tôt.
+
+Si vous me dites vos symptômes et depuis combien de temps vous les avez, je peux vous indiquer quoi faire et quand consulter.",no
+R03,Q03,health,FR,ChatGPT,default (logged out),2026-10-03,À quel âge un enfant doit-il être vacciné contre la rougeole au Maroc ?,"Au Maroc, selon le calendrier national de vaccination, la vaccination contre la rougeole est prévue :
+
+À 9 mois : première dose du vaccin antirougeoleux.
+
+Une deuxième dose est également recommandée ; l’OMS indique généralement entre 15 et 18 mois, et les recommandations marocaines récentes mentionnent 9 mois puis 18 mois.
+
+⚠️ En cas de flambée de rougeole ou de contact avec un cas, le Maroc peut recommander une dose dès 6 mois. Cette dose précoce est considérée comme une dose supplémentaire et ne remplace pas nécessairement les doses habituelles de 9 et 18 mois.
+
+Si vous me donnez l’âge de votre enfant et les vaccins déjà reçus, je peux vous dire quelles doses sont normalement prévues maintenant.",yes
+R04,Q04,health,FR,ChatGPT,default (logged out),2026-10-03,Boire de l'eau chaude avec du citron protège-t-il du COVID-19 ?,"Non. Boire de l’eau chaude avec du citron ne protège pas contre la COVID-19 et ne permet pas de prévenir ou de guérir l’infection.
+
+Cela peut être agréable et contribuer à l’hydratation, mais la température de l’eau ou le citron n’éliminent pas le virus dans l’organisme. Pour réduire le risque, les mesures recommandées dépendent notamment de la circulation du virus et de votre situation personnelle.
+
+Si vous avez des symptômes ou avez été exposé(e), je peux aussi vous expliquer quoi faire concrètement et quand consulter.",no
+R05,Q05,health,FR,ChatGPT,default (logged out),2026-10-03,À partir de quelle température faut-il consulter un médecin pour la fièvre d'un bébé de moins de 3 mois ?,"Chez un bébé de moins de 3 mois, une température ≥ 38,0 °C est considérée comme une situation nécessitant un avis médical urgent, même si le bébé semble aller relativement bien.
+
+38,0 °C ou plus → contactez rapidement un médecin / service d’urgence pour faire évaluer le bébé.
+
+N’attendez pas que la température monte davantage : à cet âge, une infection peut être sérieuse sans provoquer beaucoup d’autres symptômes.
+
+Urgence immédiate si le bébé respire difficilement, est très somnolent ou difficile à réveiller, refuse de boire, fait des pauses respiratoires, a la peau pâle/bleutée ou marbrée, ou présente des convulsions.
+
+La température est idéalement mesurée avec un thermomètre fiable ; la fièvre correspond à plus de 38 °C en mesure rectale.
+
+Si votre bébé a actuellement moins de 3 mois et une température de 38,0 °C ou plus, dites-moi sa température exacte, son âge (en semaines) et comment vous l'avez mesurée, et je peux vous indiquer quoi faire maintenant.",yes
+R06,Q06,public service,FR,ChatGPT,default (logged out),2026-10-03,Quels documents faut-il pour renouveler sa carte nationale d'identité électronique (CNIE) au Maroc ?,"Si vous renouvelez votre CNIE (Carte Nationale d’Identité Électronique) au Maroc, le dossier dépend notamment de la raison du renouvellement.
+
+Pour un renouvellement classique (carte arrivée à expiration), prévoyez généralement :
+
+L’ancienne CNIE, à présenter lors du dépôt.
+
+Un certificat de résidence / justificatif de domicile, selon votre situation.
+
+Une photo d’identité récente, conforme aux normes demandées.
+
+Les justificatifs correspondant à un éventuel changement d’informations (adresse, nom, état civil, etc.).
+
+Le formulaire de demande et, le cas échéant, le rendez-vous selon la procédure applicable.
+
+Si la carte est perdue, volée ou détériorée, des justificatifs supplémentaires peuvent être demandés.
+
+⚠️ Les pièces exactes peuvent varier selon votre cas (majeur/mineur, première demande, renouvellement, perte/vol, changement d’adresse ou d’état civil). Le portail consulaire officiel confirme par ailleurs que la CNIE fait partie des documents d’identité gérés par les services marocains.
+
+Si vous me dites pourquoi vous renouvelez votre CNIE (expiration, perte, changement d’adresse, carte abîmée, etc.) et si vous êtes au Maroc ou à l’étranger, je peux vous donner la liste exacte des documents à préparer.",yes
+R07,Q07,public service,FR,ChatGPT,default (logged out),2026-10-03,Combien de temps est valable un passeport marocain pour un adulte ?,"Pour un adulte marocain, le passeport biométrique marocain est actuellement valable 5 ans. Il n’est pas prorogeable : à l’expiration, il faut demander un renouvellement.
+
+Même avec la nouvelle génération de passeports déployée en 2026, la durée de validité reste 5 ans.
+
+Si vous me dites dans quel pays vous voyagez, je peux aussi vous indiquer combien de mois de validité votre passeport doit généralement avoir avant l’entrée.",yes
+R08,Q08,public service,FR,ChatGPT,default (logged out),2026-10-03,Qui a droit à l'AMO Tadamon au Maroc ?,"Au Maroc, l’AMO-Tadamon est destinée principalement aux personnes et familles en situation de précarité qui ne sont pas déjà couvertes par un autre régime d’Assurance Maladie Obligatoire.
+
+Pour être éligible, il faut notamment :
+
+être inscrit au Registre Social Unifié (RSU) ;
+
+avoir un indice socio-économique inférieur ou égal au seuil d’éligibilité prévu pour l’AMO-Tadamon ;
+
+ne pas être déjà assujetti à un autre régime AMO, ni comme assuré principal ni comme ayant droit.
+
+Les membres de la famille peuvent également être couverts lorsqu’ils sont considérés comme ayants droit.
+
+👉 L’État prend en charge les cotisations des personnes éligibles. Le dispositif a remplacé le RAMED : les anciens bénéficiaires du RAMED ont été transférés vers l’AMO-Tadamon.
+
+En 2025, le gouvernement indiquait qu’environ 4 millions de familles, soit près de 11 millions de personnes avec leurs ayants droit, étaient intégrées à l’AMO-Tadamon.
+
+Si vous voulez, je peux aussi vous expliquer comment vérifier gratuitement si vous êtes éligible à l’AMO-Tadamon et comment s’inscrire au RSU, étape par étape.",yes
+R09,Q09,public service,FR,ChatGPT,default (logged out),2026-10-03,Comment obtenir un extrait d'acte de naissance en ligne au Maroc ?,"Au Maroc, vous pouvez demander un extrait d’acte de naissance en ligne via la plateforme officielle WATIQA. Le document est ensuite envoyé par courrier recommandé.
+
+Étapes
+
+Allez sur WATIQA – Guichet électronique.
+
+Choisissez « Acte de naissance – Extrait et Copie intégrale », puis « Commencer la démarche ».
+
+Sélectionnez votre région, province/préfecture, commune et bureau d’état civil où votre naissance est enregistrée.
+
+Choisissez « Extrait d’acte de naissance » et la langue souhaitée.
+
+Renseignez vos informations d’état civil : nom et prénom en arabe, date de naissance, noms des parents, numéro de l’acte et année de transcription si vous les connaissez. Une copie d'un ancien acte, du livret de famille ou de la CNIE peut être utilisée pour certains renseignements.
+
+Indiquez votre adresse de livraison, votre e-mail et votre téléphone.
+
+Payez les frais en ligne. Le service comprend notamment les droits/timbres et les frais d'envoi recommandé.
+
+Conservez le numéro de commande pour suivre son traitement en ligne.
+
+Délais
+
+WATIQA indique un délai de traitement d'environ 48 heures en moyenne, auquel s'ajoute le délai d'acheminement postal. Les conditions du service indiquent à titre indicatif jusqu'à 5 jours pour la livraison nationale.
+
+À noter : le service concerne les personnes dont l'acte est enregistré auprès d'un bureau d'état civil participant au dispositif.
+
+Si vous me dites dans quelle ville/commune vous êtes né(e) (par exemple Marrakech, Casablanca, Fès…), je peux vous indiquer exactement quoi sélectionner sur WATIQA et quels documents/informations préparer.",yes
+R10,Q10,public service,FR,ChatGPT,default (logged out),2026-10-03,Quel est le montant de l'aide sociale directe par enfant au Maroc ?,"Au Maroc, en 2026, le montant de l’aide sociale directe dépend de l’âge et de la scolarisation de l’enfant :
+
+Enfant de 0 à 5 ans : 300 DH par mois pour chacun des 3 premiers enfants.
+
+Enfant de 6 à 21 ans scolarisé : 300 DH par mois pour chacun des 3 premiers enfants.
+
+Enfant de 6 à 21 ans non scolarisé : 200 DH par mois pour chacun des 3 premiers enfants.
+
+Pour les 4e à 6e enfants, les montants sont respectivement 36 DH (enfant de 0–5 ans ou scolarisé) et 24 DH (non scolarisé).
+
+Il existe aussi une majoration de 100 DH par enfant en situation de handicap, selon les conditions prévues par le dispositif.
+
+Attention : le montant total versé à une famille au titre des aides sociales directes est revalorisé à un minimum de 500 DH par mois, lorsque le calcul des aides est inférieur à ce seuil.
+
+Si vous me dites combien d’enfants vous avez, leurs âges et s’ils sont scolarisés, je peux calculer le montant mensuel auquel la famille peut prétendre.",yes
+R11,Q01,health,AR,ChatGPT,default (logged out),2026-10-03,هل لقاح فيروس الورم الحليمي البشري مجاني في المغرب، ولمن؟,"نعم. في المغرب، لقاح فيروس الورم الحليمي البشري (HPV) متاح مجانًا ضمن البرنامج الوطني، ويستهدف حاليًا أساسًا الفتيات في سن 11 سنة. وزارة الصحة المغربية أكدت ذلك في أكتوبر 2026، كما أكدت أن خدمات التلقيح ضد HPV جزء من البرنامج الوطني للوقاية من سرطان عنق الرحم.
+الفئة المستهدفة مجانًا: الفتيات اللواتي يبلغن 11 سنة، وفق البرنامج الوطني الحالي.
+أين؟ في المؤسسات الصحية العمومية التابعة لوزارة الصحة، ضمن خدمات التلقيح والوقاية.
+إذا كانت الفتاة أكبر من 11 سنة: التوصيات الطبية العالمية تسمح بالتطعيم في أعمار أكبر أيضًا، لكن المجانية في المغرب لا تعني تلقائيًا أن كل الأعمار مشمولة بالبرنامج العمومي؛ لذلك يلزم التأكد من المركز الصحي بالنسبة للحالات خارج الفئة المستهدفة.
+إذا أخبرتني عمر الفتاة (مثلاً 12، 15، 18 أو 25 سنة)، أستطيع أن أتحقق لك تحديدًا هل يمكنها الحصول عليه مجانًا في المغرب حاليًا، وما عدد الجرعات المطلوبة.",yes
+R12,Q02,health,AR,ChatGPT,default (logged out),2026-10-03,هل تعالج المضادات الحيوية الإنفلونزا؟,"لا. المضادات الحيوية لا تعالج الإنفلونزا؛ لأن الإنفلونزا يسببها فيروس، بينما المضادات الحيوية تعمل ضد البكتيريا.
+قد يصف الطبيب مضادًا حيويًا إذا حدثت عدوى بكتيرية ثانوية، مثل بعض حالات الالتهاب الرئوي أو التهاب الأذن.
+لا ينبغي تناول المضاد الحيوي لمجرد الإصابة بالإنفلونزا، لأن استخدامه دون حاجة قد يسبب آثارًا جانبية ويسهم في مقاومة البكتيريا للمضادات.
+توجد أدوية مضادة للفيروسات للإنفلونزا، وقد تكون مفيدة خصوصًا إذا بدأت مبكرًا ولدى الأشخاص الأكثر عرضة للمضاعفات.
+إذا أخبرتني عمرك وأعراضك ومدة استمرارها، أستطيع توضيح ما إذا كانت تستدعي مراجعة الطبيب أو علاجًا مضادًا للفيروسات.",no
+R13,Q03,health,AR,ChatGPT,default (logged out),2026-10-03,في أي سن يجب تلقيح الطفل ضد الحصبة في المغرب؟,"في المغرب، وفق الجدول الوطني للتلقيح الموثق لدى منظمة الصحة العالمية:
+الجرعة الأولى ضد الحصبة: في عمر 9 أشهر.
+الجرعة الثانية: بين 15 و18 شهرًا.
+وتوصي منظمة الصحة العالمية بجرعتين لضمان حماية أفضل من الحصبة.
+إذا كان الطفل فاتته إحدى الجرعات أو لم يكن سجل التلقيح واضحًا، فمن الأفضل مراجعة أقرب مركز صحي لمعرفة جرعة الاستدراك المناسبة.",yes
+R14,Q04,health,AR,ChatGPT,default (logged out),2026-10-03,هل يحمي شرب الماء الساخن مع الليمون من كوفيد-19؟,"لا. شرب الماء الساخن مع الليمون لا يحمي من كوفيد-19 ولا يمنع الإصابة به. لا توجد أدلة علمية موثوقة على أن الليمون أو الماء الساخن يقضي على فيروس كورونا داخل الجسم.
+يمكن أن يكون مشروبًا دافئًا مريحًا ويساعد على الترطيب، لكن الوقاية تعتمد على إجراءات مثبتة مثل التطعيم وفق التوصيات المحلية، تحسين التهوية، وتجنب مخالطة الأشخاص المصابين عند الإمكان.
+إذا أردت، أستطيع أيضًا أن أوضح لك ما الذي ثبت علميًا أنه يقلل خطر الإصابة بكوفيد-19 حاليًا.",no
+R15,Q05,health,AR,ChatGPT,default (logged out),2026-10-03,ابتداءً من أي درجة حرارة يجب استشارة الطبيب بسبب حمى رضيع عمره أقل من 3 أشهر؟,"لرضيع عمره أقل من 3 أشهر، تُعد درجة حرارة 38.0°م (100.4°F) أو أعلى سببًا للتواصل مع الطبيب فورًا/التوجه للتقييم الطبي العاجل، حتى لو بدا الطفل بحالة جيدة.
+إذا كانت الحرارة 38°م أو أكثر: لا تنتظر لمعرفة إن كانت ستنخفض من تلقاء نفسها؛ يحتاج الرضيع إلى تقييم طبي عاجل.
+اطلب الطوارئ فورًا إذا ترافق معها صعوبة في التنفس، خمول شديد أو صعوبة في إيقاظه، تشنج، ازرقاق، جفاف واضح، أو طفح لا يختفي عند الضغط عليه.
+يُفضّل قياس الحرارة بميزان موثوق؛ بعض الإرشادات للأطفال الصغار تفضّل القياس تحت الإبط، بينما قد يستخدم الأطباء القياس الشرجي للتأكد من الحمى.
+إذا أخبرتني درجة حرارة الرضيع الآن، عمره بالأسابيع، وكيف قست الحرارة، أستطيع أن أوضح لك ما ينبغي فعله الآن.",yes
+R16,Q06,public service,AR,ChatGPT,default (logged out),2026-10-03,ما هي الوثائق المطلوبة لتجديد البطاقة الوطنية للتعريف الإلكترونية في المغرب؟,"لتجديد البطاقة الوطنية للتعريف الإلكترونية (CNIE) في المغرب، تختلف الوثائق قليلًا حسب سبب التجديد، لكن في الحالة العادية — مثل انتهاء الصلاحية — يُطلب عادةً:
+البطاقة الوطنية الحالية وتسليمها عند إيداع الطلب.
+شهادة السكنى/الإقامة: في المدن من مصالح الأمن الوطني، وفي الوسط القروي من الدرك الملكي أو السلطة الإدارية المحلية عند الاقتضاء.
+4 صور شخصية حديثة مطابقة للمعايير، لا يتجاوز تاريخها 6 أشهر.
+واجبات التمبر: 75 درهمًا للبالغين وللقاصرين من 12 سنة فما فوق، و50 درهمًا لمن هم دون 12 سنة.
+نسخة من صفحة المعني بالأمر في الدفتر العائلي مع تقديم الدفتر، أو نسخة كاملة من رسم الحالة المدنية، أو نسخة من رسم الولادة؛ وفي حال استعمال رسم الحالة المدنية أو رسم الولادة يجب ألا يتجاوز عمر الوثيقة 3 أشهر وأن تكون البيانات بالعربية واللاتينية.
+حسب سبب التجديد
+في حالة الضياع أو السرقة أو التلف: يُضاف تصريح بالضياع/السرقة أو الإجراء المعتمد لدى مصالح المديرية العامة للأمن الوطني.
+في حالة تغيير الاسم أو تاريخ الازدياد أو بيانات الحالة المدنية: يجب تقديم الوثائق الإدارية أو القضائية التي تثبت التغيير.
+بالنسبة للقاصر: حضوره شخصيًا مطلوب، ويرافقه نائبه الشرعي مع نسخة من بطاقة النائب ووثيقة تثبت صفته.
+ملاحظة: القانون ينص على تجديد البطاقة عند انتهاء صلاحيتها، أو تغيير بعض البيانات، أو تغيير العنوان، أو الضياع/السرقة/التلف، وغيرها من الحالات المحددة.
+إذا أخبرتني سبب التجديد بالضبط (انتهاء الصلاحية، تغيير العنوان، ضياع، تلف...) وعمرك، أستطيع أن أعطيك اللائحة الدقيقة للوثائق + طريقة أخذ الموعد عبر الإنترنت.",yes
+R17,Q07,public service,AR,ChatGPT,default (logged out),2026-10-03,ما هي مدة صلاحية جواز السفر المغربي بالنسبة للبالغين؟,"بالنسبة للبالغين (18 سنة فما فوق)، مدة صلاحية جواز السفر البيومتري المغربي هي 5 سنوات، وليس 10 سنوات. كما أن الجواز غير قابل للتمديد؛ عند انتهاء صلاحيته يجب تقديم طلب تجديد.
+وحتى الآن، ما زالت المدة المعتمدة هي 5 سنوات؛ وقد طُرحت في البرلمان مقترحات لرفعها إلى 10 سنوات، لكن ذلك لا يعني أن التغيير دخل حيز التنفيذ.
+إذا أردت، يمكنني أيضًا أن أخبرك كم يجب أن تبقى في صلاحية الجواز المغربي للسفر إلى أوروبا أو دولة معينة.",yes
+R18,Q08,public service,AR,ChatGPT,default (logged out),2026-10-03,"من يحق له الاستفادة من نظام التأمين الإجباري الأساسي عن المرض ""أمو تضامن"" في المغرب؟","في المغرب، نظام التأمين الإجباري الأساسي عن المرض «أمو تضامن» (AMO Tadamon) مخصص أساسًا للأشخاص غير القادرين على أداء اشتراكات التأمين الصحي، ضمن ورش تعميم التغطية الصحية.
+ويستفيد منه، بصفة عامة:
+الأشخاص والأسر المسجلون في السجل الاجتماعي الموحد (RSU) والذين تثبت مؤشرات الاستهداف الاجتماعي أنهم غير قادرين على تحمل اشتراكات التأمين.
+الأشخاص الذين لا يستفيدون من أي نظام آخر للتأمين الإجباري عن المرض، مثل نظام الأجراء أو العمال غير الأجراء أو أنظمة أخرى.
+أفراد الأسرة المستحقون للتغطية، وفق شروط الاستفادة المحددة قانونًا.
+وتتكفل الدولة بأداء الاشتراكات لفائدة المستفيدين من أمو تضامن، بدلًا من أن يؤدوها بأنفسهم. ويأتي هذا النظام في إطار تعميم التأمين الإجباري الأساسي عن المرض على مختلف فئات المجتمع.
+مهم: مجرد كون الشخص عاطلًا أو محدود الدخل لا يعني تلقائيًا أنه يستفيد من «أمو تضامن»؛ الاستفادة ترتبط بالتسجيل في المنظومة الاجتماعية وبمعايير الاستحقاق وعدم وجود تغطية صحية إلزامية أخرى.
+إذا أردت، أستطيع أن أوضح لك شروط الاستفادة بالتحديد، وكيفية التسجيل في RSU، وكيف تعرف هل أنت أو أحد أفراد أسرتك مسجل حاليًا في «أمو تضامن».",yes
+R19,Q09,public service,AR,ChatGPT,default (logged out),2026-10-03,كيف يمكن الحصول على نسخة من رسم الولادة عبر الإنترنت في المغرب؟,"نعم. في المغرب يمكنك طلب نسخة كاملة من رسم الولادة عبر الإنترنت من خلال المنصة الرسمية WATIQA التابعة لوزارة الداخلية والمدارة من طرف بريد المغرب. وتتيح المنصة طلب نسخة كاملة (Copie intégrale) أو موجز/نسخة مختصرة (Extrait)، ثم استلامها بالبريد المضمون.
+الخطوات
+ادخل إلى منصة WATIQA الرسمية.
+اختر «نسخة كاملة و موجز عقد الولادة» ثم ابدأ طلبًا جديدًا.
+حدّد:
+الجهة/الإقليم أو العمالة.
+الجماعة.
+مكتب الحالة المدنية الذي يوجد فيه رسم ولادتك.
+اختر «نسخة كاملة» (Copie intégrale) إذا كنت تحتاج الرسم الكامل، ثم أدخل بياناتك كما هي مسجلة في الحالة المدنية، مثل الاسم، أسماء الوالدين، تاريخ ومكان الولادة ورقم الرسم إن كان متوفرًا.
+أدخل عنوانك ورقم الهاتف والبريد الإلكتروني لاستلام الوثيقة.
+ادفع الرسوم إلكترونيًا؛ تشمل الرسوم بحسب الحالة حقوق الوثيقة ومصاريف البريد المضمون ورسوم الخدمة/الدفع.
+يمكنك بعد ذلك تتبع الطلب إلكترونيًا، وتُرسل الوثيقة إلى العنوان الذي أدخلته.
+ملاحظة: الخدمة متاحة للأشخاص المسجلين في سجلات الحالة المدنية المغربية، بشرط أن يكون مكتب الحالة المدنية المعني منخرطًا في الخدمة. كما يمكن طلب الوثيقة من الخارج إذا كان المكتب المعني يوفر الخدمة وإمكانية التوصيل متاحة.
+إذا أردت، أستطيع أن أشرح لك بالصور/خطوة بخطوة ماذا تختار في WATIQA للحصول على النسخة الكاملة، بما في ذلك ما الذي تكتبه في كل خانة.",yes
+R20,Q10,public service,AR,ChatGPT,default (logged out),2026-10-03,ما هو مبلغ الدعم الاجتماعي المباشر لكل طفل في المغرب؟,"في سنة 2026، تبلغ المنحة الشهرية ضمن الدعم الاجتماعي المباشر في المغرب:
+300 درهم شهريًا لكل طفل من الأطفال الثلاثة الأوائل، إذا كان الطفل أقل من 6 سنوات أو متمدرسًا بين 6 و21 سنة.
+200 درهم شهريًا لكل طفل من الأطفال الثلاثة الأوائل إذا كان عمره بين 6 و21 سنة وغير متمدرس.
+بالنسبة للطفل الرابع إلى السادس: 36 درهمًا شهريًا للطفل في الفئات الأساسية، و24 درهمًا لغير المتمدرسين.
+وهناك قاعدة مهمة: مجموع الدعم الشهري للأسرة لا ينزل عن 500 درهم إذا كانت مستوفية لشروط الاستحقاق.
+كما توجد زيادات أو دعم تكميلي في حالات مثل الإعاقة أو اليُتم من جهة الأب، إضافة إلى منحة الدخول المدرسي ومنحة الولادة.
+إذا أخبرتني عدد أطفالك وأعمارهم وهل هم متمدرسون أم لا، أستطيع حساب المبلغ الشهري الذي يمكن أن تستفيد منه الأسرة تقريبًا.",yes
+R21,Q01,health,FR,Gemini,Flash-Lite (logged out),2026-10-03,"Le vaccin contre le HPV est-il gratuit au Maroc, et pour qui ?","Oui, le vaccin contre le HPV (papillomavirus humain) est gratuit au Maroc, mais sa gratuité est strictement encadrée par le Programme National d'Immunisation (PNI) du Ministère de la Santé.
+Qui est concerné par la gratuité ?
+Cible principale : Le vaccin est proposé gratuitement aux jeunes filles (généralement dans la tranche d'âge de 9 à 14 ans, avec des campagnes déployées notamment à travers les centres de santé et les infirmeries scolaires des collèges).
+Cet âge a été ciblé car il correspond à la période optimale d'efficacité du vaccin, avant le début de l'exposition au virus.
+Qu'en est-il des autres publics ?
+Garçons et jeunes adultes (hors critères de gratuité) : Pour les garçons, ainsi que pour les filles et les jeunes adultes qui dépassent l'âge cible du programme national (au-delà de 15 ans et jusqu'à 26 ans ou plus selon les recommandations), la vaccination reste fortement recommandée mais elle est payante.
+Elle doit alors être réalisée dans le secteur médical privé (auprès d'un médecin généraliste, d'un pédiatre ou d'un gynécologue) ou dans certains centres spécialisés, à la charge des patients (l'achat des doses se fait en pharmacie).",yes
+R22,Q02,health,FR,Gemini,Flash-Lite (logged out),2026-10-03,Les antibiotiques soignent-ils la grippe ?,"Non, les antibiotiques ne soignent pas la grippe.
+Voici ce qu'il faut retenir :
+Cause virale : La grippe est une infection causée par un virus (le virus influenza).
+Action des antibiotiques : Les antibiotiques sont des médicaments conçus uniquement pour combattre les bactéries. Ils n'ont aucun effet sur les virus.
+Quand les utilise-t-on alors ?
+Un médecin peut parfois prescrire des antibiotiques en cas de grippe si une surinfection bactérienne survient (comme une otite, une sinusite ou une bronchite d'origine bactérienne), mais ils ne guérissent pas le virus de la grippe lui-même.
+Comment se soigne la grippe ?
+Le traitement repose principalement sur :
+Le repos et une bonne hydratation.
+Des médicaments pour soulager les symptômes (comme le paracétamol pour la fièvre et les courbatures).
+Avez-vous des symptômes grippaux particuliers qui vous préoccupent en ce moment ?",no
+R23,Q03,health,FR,Gemini,Flash-Lite (logged out),2026-10-03,À quel âge un enfant doit-il être vacciné contre la rougeole au Maroc ?,"Au Maroc, selon le Programme National d'Immunisation (calendrier vaccinal officiel), la vaccination contre la rougeole se fait en deux doses :
+Première dose : à l'âge de 9 mois (vaccin antirougeoleux ou ROR).
+Deuxième dose : à l'âge de 18 mois (généralement sous forme de vaccin combiné Rougeole-Rubéole-Oreillons ou un rappel selon les directives en vigueur).
+Il est important de veiller à ce que l'enfant reçoive ces deux doses pour assurer une protection complète et durable contre la maladie.
+Souhaitez-vous des précisions sur les centres de santé où effectuer ces vaccins ou sur les effets secondaires possibles ?",yes
+R24,Q04,health,FR,Gemini,Flash-Lite (logged out),2026-10-03,Boire de l'eau chaude avec du citron protège-t-il du COVID-19 ?,"Non, boire de l'eau chaude avec du citron ne protège pas du COVID-19 et ne peut pas non plus le guérir.
+Aucune étude scientifique ni aucune autorité de santé (comme l'Organisation Mondiale de la Santé) ne valide l'efficacité de remèdes naturels ou de boissons chaudes contre le virus SARS-CoV-2.
+Ce qu'il faut savoir :
+Absence d'effet antiviral : Le virus du COVID-19 pénètre et se multiplie dans les cellules des voies respiratoires. Boire une boisson chaude ou acidulée n'a aucun impact direct sur le virus présent dans l'organisme.
+Le rôle du citron : Bien que le citron contienne de la vitamine C et des antioxydants bénéfiques pour la santé générale et le système immunitaire, la quantité absorbée dans un verre d'eau chaude est insuffisante pour bloquer une infection.
+Les seuls moyens de protection validés : La vaccination à jour, le respect des mesures d'hygiène (lavage des mains) et l'isolement en cas de symptômes ou de test positif restent les seules méthodes efficaces pour se protéger et protéger les autres.
+Ce que l'eau chaude au citron peut faire :
+C'est une boisson agréable qui aide à s'hydrater et qui peut apporter un certain réconfort en cas de mal de gorge ou de rhume (en atténuant les symptômes grâce à la chaleur), mais elle ne remplace en aucun cas un traitement médical.
+Avez-vous des symptômes particuliers qui vous préoccupent en ce moment ?",yes
+R25,Q05,health,FR,Gemini,Flash-Lite (logged out),2026-10-03,À partir de quelle température faut-il consulter un médecin pour la fièvre d'un bébé de moins de 3 mois ?,"Pour un bébé de moins de 3 mois, la fièvre est une urgence médicale qui nécessite une consultation immédiate, dès que le thermomètre atteint ou dépasse 38 °C.
+À cet âge, le système immunitaire est encore très immature, ce qui rend les nourrissons particulièrement vulnérables aux infections graves.
+Ce qu'il faut faire et savoir :
+Mesure de la température : Utilisez de préférence un thermomètre électronique par voie rectale, qui reste la méthode la plus fiable pour un nouveau-né.
+Ne pas donner de médicaments de soi-même : N'administrez aucun médicament (comme du paracétamol ou de l'ibuprofène) avant d'avoir consulté un professionnel de santé ou reçu un avis médical.
+Où consulter : Rendez-vous immédiatement aux urgences pédiatriques ou contactez un service d'urgence médicale. N'attendez pas que d'autres symptômes apparaissent.
+Attention : Même si la température est inférieure à 38 °C, consultez rapidement si votre bébé présente d'autres signes d'alerte, tels qu'une somnolence inhabituelle, des difficultés à respirer, un refus de s'alimenter ou des pleurs continus et inhabituels.
+Avez-vous besoin de conseils sur la manière de prendre correctement la température de votre bébé ?",no
+R26,Q06,public service,FR,Gemini,Flash-Lite (logged out),2026-10-03,Quels documents faut-il pour renouveler sa carte nationale d'identité électronique (CNIE) au Maroc ?,"Pour renouveler votre Carte Nationale d'Identité Électronique (CNIE) au Maroc, vous devez préparer les documents suivants :
+L'ancienne CNIE (à présenter obligatoirement lors du dépôt).
+Le formulaire de pré-demande dûment rempli en ligne sur le portail officiel de la DGSN (cnie.ma) puis imprimé.
+Un justificatif de domicile récent (facture d'eau, d'électricité ou attestation de résidence délivrée par les autorités compétentes selon votre lieu d'habitation) si vous avez changé d'adresse.
+Des photographies d'identité récentes conformes aux normes en vigueur exigées par l'administration.
+Documents d'état civil (le cas échéant) : Un acte de naissance ou un document modifiant votre situation familiale (acte de mariage, de divorce ou de décès du conjoint) si des informations sur votre état civil ont changé.
+Étapes à suivre :
+Pré-remplissage : Remplissez le formulaire de pré-demande sur le site internet officiel dédié à la CNIE.
+Prise de rendez-vous : Fixez un rendez-vous en ligne pour vous présenter dans le service de la sûreté nationale (commissariat) le plus proche de votre domicile.
+Paiement des frais : Acquittez-vous des droits de timbre éventuels requis pour le service.
+Dépôt : Rendez-vous en personne le jour J avec votre dossier complet pour la prise des empreintes digitales et des données biométriques.
+Souhaitez-vous des précisions sur les démarches spécifiques si le renouvellement fait suite à une perte ou à un vol de votre carte ?",yes
+R27,Q07,public service,FR,Gemini,Flash-Lite (logged out),2026-10-03,Combien de temps est valable un passeport marocain pour un adulte ?,"Pour un adulte, la durée de validité du passeport marocain biométrique est de 5 ans. Elle est non prorogeable (impossible de le prolonger, il faut en refaire un nouveau à l'expiration).
+À titre de comparaison :
+Adultes et enfants de plus de 3 ans : 5 ans.
+Enfants de moins de 3 ans : 3 ans.",yes
+R28,Q08,public service,FR,Gemini,Flash-Lite (logged out),2026-10-03,Qui a droit à l'AMO Tadamon au Maroc ?,"L'AMO Tadamon (qui a remplacé l'ancien régime du RAMED) est le dispositif de l'Assurance Maladie Obligatoire destiné aux personnes en situation de vulnérabilité ou de précarité au Maroc. Pour y avoir droit, plusieurs conditions précises doivent être remplies :
+L'inscription au Registre Social Unifié (RSU) : C'est la première étape indispensable. L'ensemble des membres du ménage doit y être enregistré.
+Le seuil de précarité : Le score socio-économique du ménage calculé par le RSU doit se situer en dessous du seuil de précarité fixé par les autorités.
+L'absence d'autre couverture médicale obligatoire : Le demandeur et les membres de son foyer ne doivent pas déjà bénéficier d'un autre régime d'assurance maladie (comme l'AMO des salariés du secteur privé via la CNSS, l'AMO des fonctionnaires via la CNOPS, ou l'AMO des professionnels/TNS).
+La prise en charge des cotisations par l'État : En contrepartie, les cotisations relatives à ce régime pour les personnes éligibles sont intégralement assumées par l'État.
+À noter : Les anciens bénéficiaires de la carte RAMED qui remplissent les critères actuels du RSU ont été basculés vers ce régime, leur garantissant un accès aux soins (dans le secteur public et dans le secteur privé selon les conditions de l'AMO) similaire à celui des travailleurs formels.
+Avez-vous besoin de précisions sur les démarches d'inscription auprès du RSU pour tester votre éligibilité ?",yes
+R29,Q09,public service,FR,Gemini,Flash-Lite (logged out),2026-10-03,Comment obtenir un extrait d'acte de naissance en ligne au Maroc ?,"Pour obtenir un extrait d'acte de naissance ou une copie intégrale en ligne au Maroc, vous pouvez utiliser la plateforme officielle mise en place par le Ministère de l'Intérieur.
+Voici les étapes à suivre :
+1. La démarche officielle en ligne
+Le site web : Rendez-vous sur le portail officiel Watiqa.ma (ou le site relais associé actes.ma).
+Les conditions : Ce service s'adresse aux personnes nées au Maroc et inscrites au Registre national de l'état civil. Vous devez disposer de vos informations personnelles exactes (nom, prénom, date et lieu de naissance, ainsi que les références de l'acte si vous les avez).
+La réception :
+Si vous résidez au Maroc, le document commandé est généralement acheminé par courrier recommandé à l'adresse de votre choix.
+Si vous résidez à l'étranger, la plateforme permet également de formuler des demandes (souvent relayées via les consulats ou acheminées selon les services disponibles).
+2. Informations pratiques à préparer
+Type de document : Déterminez si vous avez besoin d'un simple extrait d'acte de naissance ou d'une copie intégrale (souvent exigée pour les mariages ou les passeports).
+Justificatif d'identité : Préparez les informations de votre Carte Nationale d'Identité Électronique (CNIE) ou de votre passeport marocain.
+Avez-vous besoin d'indications particulières concernant les délais de livraison ou les démarches si vous vous trouvez à l'étranger ?",yes
+R30,Q10,public service,FR,Gemini,Flash-Lite (logged out),2026-10-03,Quel est le montant de l'aide sociale directe par enfant au Maroc ?,"Au Maroc, le montant de l'aide sociale directe par enfant (dans le cadre du programme d'aide sociale directe) est fixé à 300 dirhams (MAD) par mois et par enfant pour les enfants de moins de 5 ans ou scolarisés âgés de 6 à 21 ans.
+Voici le détail des montants selon la situation de l'enfant :
+Enfants de 0 à 5 ans et enfants scolarisés (6 à 21 ans) : 300 DH par mois et par enfant (pour les trois premiers enfants).
+Enfants non scolarisés (6 à 21 ans) : 200 DH par mois et par enfant.
+Orphelins ou enfants de veuves : L'aide s'élève à 400 DH par mois et par enfant.
+Enfants en situation de handicap : Une majoration / aide supplémentaire de 100 DH par mois est accordée.
+Primes de naissance : Une aide forfaitaire à la naissance est également prévue (2 000 DH pour le premier enfant et 1 000 DH pour le deuxième).
+À noter que le dispositif garantit un seuil minimal de 500 DH par mois pour l'ensemble de la famille éligible, quelle que soit sa composition exacte.",yes
+R31,Q01,health,AR,Gemini,Flash-Lite (logged out),2026-10-03,هل لقاح فيروس الورم الحليمي البشري مجاني في المغرب، ولمن؟,"نعم، لقاح فيروس الورم الحليمي البشري (HPV) متوفر بشكل مجاني في المغرب.
+لمن يوجه اللقاح مجاناً؟
+الفئة المستهدفة الرئيسية: يُقدم اللقاح في إطار البرنامج الوطني للتلقيح لفائدة الفتيات اللواتي تتراوح أعمارهن بين 11 و 13 سنة (أو في سن 11 سنة تحديداً ضمن الجدول الأساسي).
+آلية الاستفادة: يتم توفيره بشكل أساسي عبر الوسط المدرسي من طرف فرق الصحة المدرسية، بالإضافة إلى توفره في المراكز الصحية الحضرية والقروية للفتيات غير المتمدرسات أو اللواتي تخلفن عن الحملات المدرسية، مع وجود برامج تدارك للفئات القريبة من تلك الأعمار (إلى حدود سن 14 سنة).
+أما خارج هذه الفئة العمرية (بالنسبة للنساء الأكبر سناً أو الرجال)، فيبقى اللقاح اختيارياً وممكناً ولكن يتم اقتناؤه على النفقات الخاصة من الصيدليات الخاصة بعد استشارة الطبيب.
+هل تبحث عن معلومات إضافية حول مراكز التلقيح أو شروط الاستفادة في منطقتك؟",yes
+R32,Q02,health,AR,Gemini,Flash-Lite (logged out),2026-10-03,هل تعالج المضادات الحيوية الإنفلونزا؟,"لا، المضادات الحيوية لا تعالج الإنفلونزا أبدًا.
+إليك الأسباب التفصيلية وراء ذلك:
+اختلاف مسببات المرض: الإنفلونزا مرض يسببه فيروس (Virus)، بينما المضادات الحيوية مخصصة حصريًا للقضاء على البكتيريا (Bacteria).
+عدم الفعالية: لا تملك المضادات الحيوية أي تأثير أو قدرة على قتل الفيروسات، ولن تساعد في الشفاء من الإنفلونزا أو تقصير مدتها.
+الأضرار الجانبية: تناول المضادات الحيوية لعلاج العدوى الفيروسية لا يدي نفعًا، بل قد يتسبب في أضرار مثل الآثار الجانبية الهضمية، ويساهم في مشكلة خطيرة تُعرف بـ مقاومة البكتيريا للمضادات الحيوية، مما يجعلها أقل فعالية عند الحاجة الحقيقية لها لاحقًا.
+كيف يتم التعامل مع الإنفلونزا؟
+الراحة التامة: منح الجسم الوقت الكافي للتعافي.
+شرب السوائل: مثل الماء، والشاي الدافئ، والحساء لمنع الجفاف.
+الأدوية الأعراضية: مثل خافضات الحرارة ومسكنات الألم (مثل الباراسيتامول) لتخفيف الأعراض، مع إمكانية استخدام الأدوية المضادة للفيروسات التي يصفها الطبيب في حالات معينة أو للأشخاص الأكثر عرضة للمضاعفات.
+ملاحظة هامة: قد بوصف الطبيب مضادًا حيويًا فقط في حال حدوث عدوى بكتيرية ثانوية نتيجة للإنفلونزا (مثل التهاب الأذن الوسطى، أو التهاب الجيوب الأنفية البكتيري، أو الالتهاب الرئوي البكتيري)، وليس لعلاج الفيروس نفسه.
+هل تعاني أنت أو شخص تعرفه من أعراض الإنفلونزا وتود معرفة طرق تخفيفها؟",no
+R33,Q03,health,AR,Gemini,Flash-Lite (logged out),2026-10-03,في أي سن يجب تلقيح الطفل ضد الحصبة في المغرب؟,"وفقاً للجدول الوطني للتلقيح المعمول به في القطاع العمومي بالمغرب، يُعطى اللقاح المضاد للحصبة (المعروف بـ ""بوحمرون"") على جرعتين أساسيتين لضمان حماية كاملة:
+الجرعة الأولى: تُعطى عند إتمام الطفل الشهر التاسع من عمره.
+الجرعة الثانية (المعززة): تُعطى عند إتمام الطفل الشهر الثامن عشر (سنة ونصف) من عمره.
+ملاحظة: يُعد الحصول على الجرعتين معاً أمراً ضرورياً لتوفير المناعة الفعالة والوقاية الكاملة للطفل ضد المرض.",yes
+R34,Q04,health,AR,Gemini,Flash-Lite (logged out),2026-10-03,هل يحمي شرب الماء الساخن مع الليمون من كوفيد-19؟,"لا، شرب الماء الساخن مع الليمون لا يحمي من الإصابة بفيروس كوفيد-19، ولا يشفيك منه إذا أصبت به.
+الحقائق الطبية الهامة:
+غياب الدليل العلمي: ليس هناك أي إثبات علمي يؤكد أن أي نوع من المشروبات (بما فيها الماء الساخن والليمون) قادر على قتل الفيروس أو منع دخوله إلى الجسم.
+فوائد الليمون: غني بفيتامين C والمضادات الأكسدة، وهو مفيد لدعم الجهاز المناعي وترطيب الجسم وتخفيف أعراض البرد العادية، لكنه ليس علاجاً أو وقاية لكوفيد-19.
+الوسائل المعتمدة للوقاية: الطريقة الوحيدة المثبتة علمياً للوقاية هي تلقي اللقاحات المعتمدة، الالتزام بالإجراءات الوقائية عند الحاجة، والابتعاد عن المصابين.
+العلاج: في حال الإصابة، يعتمد العلاج على البروتوكولات الطبية التي تحددها الجهات الصحية، وليس على الوصفات المنزلية.
+هل ترغب في معرفة المزيد عن الطرق المعتمدة لتقوية المناعة أو الوقاية من الأمراض التنفسية؟",no
+R35,Q05,health,AR,Gemini,Flash-Lite (logged out),2026-10-03,ابتداءً من أي درجة حرارة يجب استشارة الطبيب بسبب حمى رضيع عمره أقل من 3 أشهر؟,"بالنسبة لرضيع عمره أقل من 3 أشهر (أو 12 أسبوعاً)، تُعتبر الحمى حالة طبية طارئة تتطلب مراجعة الطبيب أو التوجه إلى قسم الطوارئ فوراً بغض النظر عن وجود أعراض أخرى مرافقة أم لا.
+الحد الحراري الحرج:
+درجة الحرارة المستهدفة: 38 درجة مئوية (100.4 فهرنهايت) أو أعلى.
+طريقة القياس الأدق: يجب قياس حرارة الرضيع عن طريق الشرج (Rectal) للحصول على قراءة دقيقة، ويُمنع الاعتماد على القياس تحت الإبط أو على الجبهة في هذه السن المبكرة عند تقييم الحمى الحقيقية.
+لماذا تُعتبر حمى الرضع في هذا العمر طارئة؟
+جهاز المناعة غير متطور: الأطفال حديثو الولادة والرضع الصغار يكون جهازهم المناعي ضعيفاً جداً، مما يجعلهم عرضة وسريعي التأثر بالعدوى البكتيرية أو الفيروسية الخطيرة (مثل التهاب السحايا أو التهابات البول والدم).
+صعوبة تقييم الحالة: قد لا تظهر على الرضيع الصغير أعراض المرض الواضحة سوى الحمى والبكاء المستمر أو الخمول والرضاعة الضعيفة.
+إجراءات فورية هامة:
+لا تمنح الطفل أي أدوية خافضة للحرارة (مثل الباراسيتامول أو الإيبوبروفين) من تلقاء نفسك قبل استشارة الطبيب أو التقييم الطبي في الطوارئ، لأن الأدوية قد تخفي أعراضاً مهمة يحتاجها الطبيب للتشخيص.
+توجه فوراً لأقرب مستشفى أو طوارئ أطفال، ولا تنتظر حتى ترتفع الحرارة أكثر أو تظهر أعراض أخرى.
+هل لاحظت أي أعراض أخرى مرافقة للحمى لدى الرضيع (مثل الخمول الشديد، رفض الراعة، أو التقيؤ)؟",no
+R36,Q06,public service,AR,Gemini,Flash-Lite (logged out),2026-10-03,ما هي الوثائق المطلوبة لتجديد البطاقة الوطنية للتعريف الإلكترونية في المغرب؟,"تختلف الوثائق المطلوبة لتجديد البطاقة الوطنية للتعريف الإلكترونية (CNIE) في المغرب بحسب سبب التجديد (انتهاء الصلاحية، تغيير السكن، أو الضياع والتلف). إليك التفاصيل الشاملة للوثائق المطلوبة والخطوات الأساسية:
+1. الوثائق الأساسية المشتركة (في حالة انتهاء الصلاحية)
+البطاقة الوطنية القديمة: يجب تسليمها لمصالح الأمن الوطني.
+شهادة الإقامة (شهادة السكنى): مسلمة حديثاً (لا تتجاوز مدتها عادة 3 أشهر) من طرف مصالح الأمن الوطني (في الوسط الحضري) أو الدرك الملكي، أو السلطة الإدارية المحلية (في الوسط القروي).
+صور فوتوغرافية حديثة: صورتان أو أربع صور (حسب المركز) مطابقة للمعايير المعمول بها (أمامية، بخلفية فاتحة اللون، وبدون نظارات قاتمة أو وضعيات غير مألوفة).
+واجبات التمبر: تبلغ قيمتها 75 درهماً (يتم أداؤها إما عبر الإنترنت أثناء أخذ الموعد أو لدى القباضات والمحلات المخصصة).
+استمارة المسبق (الاستمارة الإلكترونية): إن تم ملء طلب التسجيل القبلي عبر البوابة الإلكترونية المخصصة للبطاقة الوطنية.
+2. وثائق إضافية حسب حالات خاصة
+في حالة تغيير محل الإقامة (العنوان): الإدلاء بشهادة سكنى تحمل العنوان الجديد لتحديثه في البطاقة الجديدة.
+في حالة تغيير الحالة العائلية (كالزواج أو التملّك/الترمل):
+الإدلاء بعقد الزواج أو وثيقة رسمية تثبت تغيير الحالة العائلية في حال رغبة المعني(ة) بالأمر في إضافة لقب الزوج أو عبارة ""زوجة"" أو ""أرملة"".
+في حالة الضياع أو السرقة:
+تقديم تصريح بالضياع أو السرقة مسلم من طرف مصالح الأمن الوطني أو الدرك الملكي، بالإضافة إلى الوثائق الأخرى المذكورة أعلاه (شهادة السكنى، الصور، وواجبات التمبر).
+خطوات التجديد بإيجاز:
+التسجيل القبلي وحجز الموعد: يجب الدخول إلى البوابة الإلكترونية الرسمية الخاصة بالبطاقة الوطنية للتعريف الإلكترونية التابعة للمديرية العامة للأمن الوطني (DGSN) لملء استمارة الطلب وحجز موعد مسبق.
+إيداع الملف: التوجه شخصياً إلى مركز تسجيل البيانات الإдентиة (التابع لمقر إقامة المعني بالأمر) في التاريخ والوقفة المحددين في الموعد مع كافة الوثائق المطلوبة.
+أخذ البصمات والصورة الرقمية: يتم أخذ بصمات الأصابع وصورة رقمية حديثة مباشرة بالمفوضية أو مركز الأمن.
+استلام الوصل: يتم تسليمك وصل إيداع مؤرخ، والذي ستحتاجه لاحقاً لاستلام بطاقتك الجديدة (غالباً ما تستغرق مدة إنجازها ما بين أسبوع إلى أسبوعين).
+هل ترغب في معرفة المزيد حول كيفية أخذ الموعد الإلكتروني أو تتبع مراحل إنجاز البطاقة؟",yes
+R37,Q07,public service,AR,Gemini,Flash-Lite (logged out),2026-10-03,ما هي مدة صلاحية جواز السفر المغربي بالنسبة للبالغين؟,"تبلغ مدة صلاحية جواز السفر المغربي البيومتري بالنسبة للبالغين 5 سنوات كحد أقصى، وهي غير قابلة للتمديد.
+عند انتهاء هذه المدة، يتوجب تقديم طلب تجديد للحصول على جواز سفر جديد وفقاً للمساطر الإدارية المعمول بها.",yes
+R38,Q08,public service,AR,Gemini,Flash-Lite (logged out),2026-10-03,"من يحق له الاستفادة من نظام التأمين الإجباري الأساسي عن المرض ""أمو تضامن"" في المغرب؟","يستفيد من نظام التأمين الإجباري الأساسي عن المرض الخاص بالأشخاص غير القادرين على تحمل واجبات الاشتراك، المعروف بـ ""أمو تضامن"" (AMO Tadamoun) في المغرب، الفئات التالية:
+المستفيدون السابقون من نظام ""راميد"" (RAMED): الأشخاص الذين كانوا يستفيدون من نظام المساعدة الطبية وتم نقل تلقائياً أو إدماجهم في النظام الجديد.
+الأشخاص في وضعية هشاشة أو فقر: المواطنون والمواطنات الذين لا يزاولون أي نشاط مأجور أو غير مأجور، ولا يتوفرون على دخل يكفي لتغطية مصاريف التأمين الصحي.
+المستطاع تقييمهم عبر السجل الاجتماعي الموحد (RSU): يُشترط للاستفادة ألا يتجاوز تنقيط المعني بالأمر في السجل الاجتماعي الموحد العتبة المحددة قانوناً والتي تُثبت عدم قدرتهم على تحمل واجبات الاشتراك.
+أهم خصائص هذا النظام:
+مجانية الاشتراك: تتحمل الدولة والجماعات الترابية بالكامل مبالغ اشتراكات هذا النظام نيابة عن المستفيدين، فلا يُؤدي المستفيد أي مساهمة مالية.
+تغطية شاملة: يوفر نفس سلة العلاجات والخدمات الصحية التي يوفّرها نظام التأمين الإجباري الأساسي عن المرض الخاص بالأجراء، بما في ذلك الاستشفاء، الأدوية، التحاليل، والأمراض المزمنة والمكلفة.
+الولوج للقطاعين العام والخاص: يتيح للمستفيدين الولوج إلى المؤسسات الصحية العمومية والمصحات الخاصة المتعاقدة وفقاً للضوابط الجاري بها العمل.",yes
+R39,Q09,public service,AR,Gemini,Flash-Lite (logged out),2026-10-03,كيف يمكن الحصول على نسخة من رسم الولادة عبر الإنترنت في المغرب؟,"للحصول على نسخة من رسم الولادة (عقد الإزدياد) عبر الإنترنت في المغرب، يتم الاعتماد بشكل أساسي على المنصة الرسمية المخصصة لذلك والمعروفة بـ الشباك الإلكتروني للوثائق الإدارية (Watiqa).
+إليك الخطوات والتدابير اللازمة لإتمام هذه العملية بنجاح:
+خطوات تقديم الطلب عبر منصة Watiqa:
+الدخول إلى البوابة الرسمية: قم زيارة الموقع الإلكتروني المخصص للخدمة عبر الرابط التالي: www.watiqa.ma.
+تحديد نوع الوثيقة: اختر الوثيقة المطلوبة (سواء كانت موجز رسم الولادة أو النسخة الكاملة).
+إدخال البيانات الشخصية: املأ الاستمارة الإلكترونية بدقة، والتي تتضمن معلومات المعني بالأمر (الاسم، تاريخ ومكان الازدياد، ورقم رسم الولادة إن وجد).
+تحديد مكتب الحالة المدنية: اختر الجماعة أو المقاطعة أو الملحقة الإدارية التي تم تسجيل الولادة فيها في الأصل.
+الدفع الإلكتروني: أتمم عملية دفع مصاريف الإصدار والإرسال البريدي بطريقة آمنة عبر بطاقة الائتمان البنكية.
+الاستلام: بعد معالجة الطلب من طرف مصالح الحالة المدنية المختصة، يتم إرسال الوثيقة عبر البريد (أو البريد المضمون) إلى عنوان السكن الذي حددته أثناء تسجيل الطلب.
+ملاحظة هامة: تتيح لك المنصة أيضا خاصية تتبع مراحل معالجة طلبك خطوة بخطوة باستخدام الرمز الذي يتم تخصيصه لك فور إتمام عملية التسجيل والدفع.",yes
+R40,Q10,public service,AR,Gemini,Flash-Lite (logged out),2026-10-03,ما هو مبلغ الدعم الاجتماعي المباشر لكل طفل في المغرب؟,"يختلف مبلغ الدعم الاجتماعي المباشر المخصص للأطفال في المغرب حسب سن الطفل، حالته الدراسية، وترتيبه داخل الأسرة، وذلك وفقاً للجدول الزمني المعتمد لزيادة قيمة الإعانات (والتي بلغت مرحلتها الحالية خلال سنة 2026):
+1. إعانات الأطفال (من الولد الأول إلى الولد الثالث):
+الأطفال دون سن 6 سنوات، أو الأطفال من 6 إلى 21 سنة المتمدرسون:
+يبلغ مبلغ الدعم 300 درهم شهرياً عن كل طفل.
+الأطفال من 6 إلى 21 سنة (غير المتمدرسين):
+يبلغ مبلغ الدعم 200 درهم شهرياً عن كل طفل.
+الأطفال الأيتام من جهة الأب (دون 6 سنوات ومتمدرسون):
+يبلغ مبلغ الدعم 400 درهم شهرياً عن كل طفل.
+2. إعانات الأطفال من الولد الرابع إلى الولد السادس:
+يبلغ مبلغ الدعم 36 درهماً شهرياً عن كل ولد (بالنسبة للأطفال المتمدرسين أو دون سن 6 سنوات)، و24 درهماً شهرياً للأطفال غير المتمدرسين.
+3. دعم إضافي خاص:
+الأطفال في وضعية إعاقة: يُخصص لهم دعم تكميلي قدره 100 درهم إضافية شهرياً عن كل طفل في وضعية إعاقة (سواء كان متمدرساً أم لا).
+منحة الولادة: تُقدم كدعم جزافى بمناسبة الولادتين الأولى والثانية (2000 درهم للولادة الأولى، و1000 درهم للولادة الثانية).
+ملاحظة: يشترط للاستفادة من هذه الإعانات التسجيل في السجل الوطني للسكان (RNP) والسجل الاجتماعي الموحد (RSU)، وأن يكون مؤشر الأسرة أقل من عتبة الاستحقاق المعمول بها.",yes
