@@ -1,12 +1,13 @@
-# Chatbot certainty audit (pilot)
+# Chatbot certainty audit: French vs Arabic
 
 Do chatbots sound equally sure of themselves in French and in Arabic?
 
-This repository holds a small pilot for my PhD project on how the certainty
-an AI system expresses shapes whether people check information before
-passing it on. Before running experiments with people, I wanted to see which
-certainty cues users actually get from chatbots, and whether those cues
-change with the language of the question.
+More and more people ask chatbots about health or public services and pass
+the answers on to others. Whether they check first may depend on how sure the
+answer sounds. I wanted to see which certainty cues people actually get from
+chatbots, and whether those cues change with the language of the question.
+French and Arabic are the two languages I work in, and the two languages of
+most official information in Morocco.
 
 ## What was done
 
@@ -35,7 +36,7 @@ change with the language of the question.
 
 Both chatbots hedge less in Arabic than in French, and ChatGPT hedges more
 than Gemini. The pattern holds with a revised lexicon (version 2). With 10
-questions and one run each, this is a pilot, not a finding.
+questions and one run each, this is a first look, not a finding.
 
 The validation check shows that the lexicon picks up boosters well but
 misses about a third of hedges, and that a confident tone often comes from
