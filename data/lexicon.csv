@@ -1,0 +1,26 @@
+language,category,pattern,version,example
+fr,hedge,peut|peuvent|pourrait|pourraient|puisse,1,Certains antiviraux peuvent être utiles
+fr,hedge,généralement|en général|habituellement|normalement,1,prévoyez généralement
+fr,hedge,souvent|parfois,1,souvent exigée
+fr,hedge,environ|à peu près|approximativement|à titre indicatif,1,environ 48 heures
+fr,hedge,probablement|possible|possiblement|éventuel|éventuelle|éventuellement|le cas échéant,1,le cas échéant
+fr,hedge,semble|semblent,1,il semble que
+fr,hedge,dépend|dépendent|selon votre|selon vos|selon les cas|selon la situation,1,dépend de la raison
+fr,booster,toujours|jamais|certainement|clairement|absolument|évidemment|sans aucun doute,1,ne remplace jamais
+fr,booster,strictement|obligatoirement|uniquement|seulement|exclusivement|intégralement,1,strictement encadrée
+fr,booster,seul|seule|seuls|seules|aucun|aucune|en aucun cas|impossible|indispensable,1,aucun effet sur les virus
+fr,evidence,selon le|selon les|selon l'|selon la(?! situation)|d'après,1,selon le calendrier national
+fr,evidence,oms|organisation mondiale de la santé|ministère|officiel|officielle|officiels|programme national,1,le portail officiel
+fr,evidence,étude|études|scientifique|scientifiques,1,aucune étude scientifique
+fr,verify,vérifier|se renseigner|confirmer auprès,1,il faut vérifier les conditions
+ar,hedge,قد(?=\s+[يتن]),1,قد يصف الطبيب
+ar,hedge,ربما|عادة|غالبا|احيانا|تقريبا|حوالي,1,يطلب عادة
+ar,hedge,يمكن|ممكن|من الممكن|محتمل|يحتمل,1,يمكن أن يكون
+ar,hedge,تختلف|يختلف|حسب الحالة|بحسب الحالة|حسب سبب|حسب المركز|عند الاقتضاء,1,تختلف الوثائق
+ar,booster,ابدا(?=\s*[.،؛!؟]|\s*$)|دائما|بالتاكيد|حتما|قطعا|اطلاقا|بالكامل|حصريا|فقط,1,لا تعالج الإنفلونزا أبدًا
+ar,booster,الوحيدة|الوحيد|لا يوجد اي|لا توجد اي|ليس هناك اي|ضروري|ضروريا,1,الطريقة الوحيدة المثبتة
+ar,evidence,وفق|وفقا|طبقا|منظمة الصحة العالمية|وزارة|الرسمية|الرسمي|البرنامج الوطني,1,وفق الجدول الوطني
+ar,evidence,دراسة|دراسات|علمي|علمية|علميا,1,أدلة علمية موثوقة
+ar,verify,التاكد|التحقق|الاستفسار,1,يلزم التأكد من المركز الصحي
+fr,hedge,principalement|notamment|actuellement|près de|un certain|une certaine,2,destinée principalement aux personnes
+ar,hedge,اساسا|بشكل اساسي|بصفة عامة|حتى الان|في الغالب,2,مخصص أساسًا للأشخاص
