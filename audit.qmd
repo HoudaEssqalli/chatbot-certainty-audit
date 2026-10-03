@@ -1,0 +1,289 @@
+---
+title: "Do chatbots sound equally sure in French and in Arabic?"
+subtitle: "A pilot audit of expressed certainty in ChatGPT and Gemini"
+author: "Houda Es-sqalli"
+date: 2026-10-03
+format:
+  html:
+    toc: true
+    code-fold: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+# Why this pilot
+
+My PhD proposal asks whether the certainty a chatbot expresses changes
+whether people check information before passing it on. Before testing that
+on people, I need to know what certainty cues users actually meet, and
+whether they differ by language. This pilot is a first, small look at that
+question: 10 questions, 2 languages, 2 chatbots, 40 answers.
+
+It is a pilot. The point is to test the pipeline and the lexicon, not to
+draw conclusions about the chatbots.
+
+```{r setup}
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(knitr)
+
+source("R/score_certainty.R")
+dir.create("output", showWarnings = FALSE)
+```
+
+# Data
+
+The 10 questions cover public health (HPV vaccine, antibiotics and flu,
+measles vaccination, a COVID-19 myth, fever in infants) and public services
+in Morocco (ID card renewal, passport validity, AMO Tadamon, birth
+certificates online, direct social aid). Each one has an answer that can be
+checked against an official source.
+
+Every question was asked once, in French and in Modern Standard Arabic, to
+ChatGPT and to Gemini, on 3 October 2026. Each question was asked in a new
+conversation, with no follow-up, and both chatbots were used without an
+account so that no memory or personalisation could carry over between
+questions. Logged out, Gemini runs its Flash-Lite model; ChatGPT does not
+display which model it uses.
+
+```{r load}
+responses <- read_csv("data/responses.csv", show_col_types = FALSE)
+lexicon   <- read_csv("data/lexicon.csv",   show_col_types = FALSE)
+
+responses |>
+  count(chatbot, language) |>
+  kable(caption = "Answers collected per chatbot and language")
+```
+
+# Method
+
+## Lexicon
+
+Certainty is measured with a small bilingual lexicon of hedges and
+boosters, following Hyland's (2005) categories. The French and Arabic
+lists were built from common markers in each language and checked against
+the answers. They are kept in `data/lexicon.csv` so anyone can see exactly
+what is counted, and change it. Version 1 of the lexicon was fixed before
+any validation; version 2 adds the terms that the validation check showed
+were missing (see below).
+
+- **Hedges** lower commitment: *peut, généralement, environ, le cas
+  échéant* / *قد + verb, عادة, غالبا, يمكن, تختلف*.
+- **Boosters** raise it: *jamais, uniquement, aucun, seules* /
+  *أبدا, فقط, حصريا, الوحيدة*.
+- **Evidence** markers point to a source: *selon le, OMS, ministère,
+  officiel* / *وفق, وزارة, منظمة الصحة العالمية*.
+- **Verify** prompts tell the user to check: *vérifier* / *التأكد*.
+
+A few choices matter:
+
+- *قد* is only a hedge before an imperfect verb (*قد يصف*, "may prescribe").
+  Before a past verb it means the opposite ("indeed"), so the pattern
+  requires a following ي, ت or ن.
+- After diacritics are removed, *أبدًا* ("never") and *ابدأ* ("start")
+  become the same string. "Never" is only counted at the end of a clause.
+- Deontic markers (*il faut*, *يجب*) are left out. They tell the user what
+  to do, not how sure the chatbot is.
+
+## Measures
+
+For each answer: word count, number of hedges, boosters, evidence markers
+and verify prompts, whether it opens with a flat *Oui/Non* (*نعم/لا*), and a
+**certainty index** = (boosters − hedges) per 100 words. Rates are per 100
+words because Gemini writes longer answers.
+
+```{r score}
+scored <- score_certainty(responses, lexicon, lex_version = 1)
+
+write_csv(scored, "output/scored_responses.csv")
+```
+
+# Results
+
+## Overview
+
+```{r summary-table}
+summary_tab <- scored |>
+  group_by(chatbot, language) |>
+  summarise(
+    words          = mean(n_words),
+    hedges_100     = mean(hedges_100),
+    boosters_100   = mean(boosters_100),
+    evidence_100   = mean(evidence_100),
+    certainty      = mean(certainty_index),
+    flat_opening   = sum(categorical_opener),
+    web_sources    = sum(web_sources == "yes"),
+    .groups = "drop"
+  )
+
+summary_tab |>
+  kable(digits = 2,
+        col.names = c("Chatbot", "Language", "Words", "Hedges /100w",
+                      "Boosters /100w", "Evidence /100w", "Certainty index",
+                      "Flat Oui/Non (of 10)", "Web sources (of 10)"))
+```
+
+## Certainty by language
+
+Each dot is one answer; the black mark is the mean.
+
+```{r plot, fig.width=7, fig.height=4}
+ggplot(scored, aes(x = language, y = certainty_index)) +
+  geom_hline(yintercept = 0, colour = "grey70") +
+  geom_jitter(width = 0.08, height = 0, alpha = 0.6, size = 2) +
+  stat_summary(fun = mean, geom = "crossbar", width = 0.4, linewidth = 0.4) +
+  facet_wrap(~ chatbot) +
+  labs(x = NULL,
+       y = "Certainty index\n(boosters − hedges per 100 words)") +
+  theme_minimal(base_size = 12)
+```
+
+## Same question, two languages
+
+The fairest comparison holds the question constant: for each chatbot and
+question, how does the French answer compare with the Arabic one?
+
+```{r paired}
+paired <- scored |>
+  select(chatbot, question_id, language, certainty_index, hedges_100) |>
+  pivot_wider(names_from = language,
+              values_from = c(certainty_index, hedges_100)) |>
+  mutate(diff_certainty = certainty_index_AR - certainty_index_FR,
+         diff_hedges    = hedges_100_AR - hedges_100_FR)
+
+paired |>
+  group_by(chatbot) |>
+  summarise(
+    mean_diff_certainty = mean(diff_certainty),
+    arabic_more_certain = sum(diff_certainty > 0),
+    ties                = sum(diff_certainty == 0),
+    arabic_less_certain = sum(diff_certainty < 0)
+  ) |>
+  kable(digits = 2,
+        col.names = c("Chatbot", "Mean difference (AR − FR)",
+                      "AR more certain", "Ties", "AR less certain"))
+```
+
+# Checking the lexicon
+
+The lexicon only counts words; it does not understand them. To see what
+it misses, a random subsample of 10 answers (drawn from all four
+chatbot × language cells) was coded a second time, line by line, with the
+codebook below.
+
+This second coding was model-assisted. The codes are kept in
+`data/validation_coded.csv` with the exact words counted, so each decision
+can be checked. They are a first check on the lexicon, not a gold standard;
+independent human coding is the next step.
+
+**Codebook.** A *hedge* is any expression that lowers the writer's
+commitment to a claim (possibility, approximation, frequency, a claim
+marked as time-bound or partial). A *booster* is any expression that
+closes down alternatives (absolutes, exclusivity, emphatic negation).
+Deontic phrases (*il faut*, *يجب*) are not coded. The overall rating goes
+from 1 (very cautious throughout) to 5 (categorical, no caveat).
+
+```{r validation-sample}
+set.seed(2027)
+
+validation_ids <- scored |>
+  group_by(chatbot, language) |>
+  slice_sample(n = 3) |>
+  ungroup() |>
+  slice_sample(n = 10) |>
+  pull(id)
+
+validation <- read_csv("data/validation_coded.csv", show_col_types = FALSE) |>
+  left_join(scored |> select(id, chatbot, language,
+                             lex_hedges = hedges, lex_boosters = boosters,
+                             certainty_index),
+            by = "id")
+
+# The coded file should match the sample drawn above.
+stopifnot(setequal(validation$id, validation_ids))
+
+validation |>
+  select(id, chatbot, language, lex_hedges, hedges,
+         lex_boosters, boosters, certainty_index, certainty_1to5) |>
+  kable(digits = 2,
+        col.names = c("ID", "Chatbot", "Lang.", "Hedges (lexicon)",
+                      "Hedges (coder)", "Boosters (lexicon)",
+                      "Boosters (coder)", "Certainty index", "Rating 1-5"))
+```
+
+```{r agreement}
+agreement <- tibble(
+  measure = c("Hedges found by lexicon / by coder",
+              "Boosters found by lexicon / by coder",
+              "Correlation of hedge counts (Pearson)",
+              "Correlation of booster counts (Pearson)",
+              "Certainty index vs overall rating (Spearman)"),
+  value = c(
+    paste(sum(validation$lex_hedges), "/", sum(validation$hedges)),
+    paste(sum(validation$lex_boosters), "/", sum(validation$boosters)),
+    sprintf("%.2f", cor(validation$lex_hedges, validation$hedges)),
+    sprintf("%.2f", cor(validation$lex_boosters, validation$boosters)),
+    sprintf("%.2f", cor(validation$certainty_index, validation$certainty_1to5,
+                        method = "spearman"))
+  )
+)
+
+kable(agreement, col.names = c("", ""))
+```
+
+Boosters are picked up well. Hedges are not: the lexicon misses about a
+third of them, mostly approximators and qualifiers such as *principalement,
+notamment, actuellement, près de* and *أساسًا، بصفة عامة، حتى الآن*. The weak
+link between the index and the overall rating also shows that a confident
+tone often comes from the content (a list of exact amounts with no source)
+rather than from particular words. That is a limit of any word list, and a
+reason to pair it with human or model-based coding in the full study.
+
+## Does the result survive a better lexicon?
+
+Version 2 adds the missing hedges. Because those terms were chosen after
+looking at the validation sample, version 2 is a robustness check, not a
+replacement.
+
+```{r robustness}
+scored_v2 <- score_certainty(responses, lexicon, lex_version = 2)
+
+bind_rows(
+  scored    |> mutate(lexicon = "v1"),
+  scored_v2 |> mutate(lexicon = "v2")
+) |>
+  group_by(lexicon, chatbot, language) |>
+  summarise(hedges_100 = mean(hedges_100),
+            certainty  = mean(certainty_index), .groups = "drop") |>
+  pivot_wider(names_from = lexicon, values_from = c(hedges_100, certainty)) |>
+  kable(digits = 2,
+        col.names = c("Chatbot", "Language", "Hedges /100w (v1)",
+                      "Hedges /100w (v2)", "Certainty (v1)", "Certainty (v2)"))
+```
+
+With either version, both chatbots hedge less in Arabic than in French, and
+ChatGPT hedges more than Gemini.
+
+# Limitations
+
+- 10 questions and one run each. Answers change between runs, so a real
+  audit needs repeated runs per question.
+- The Arabic lexicon is shorter than the French one. Part of any
+  French–Arabic gap could come from the lexicon, not from the chatbots.
+  The validation and version 2 reduce this risk but do not remove it.
+- The second coding was model-assisted. Independent human coding, ideally
+  two coders per language, is needed before any claim goes beyond the pilot.
+- A word list misses certainty carried by structure (lists of steps, bold
+  text, a flat "Non." on its own line). The flat-opening variable only
+  partly covers this.
+- Both chatbots were used without an account, which matches what many
+  users see but not what paying users get.
+
+# Reference
+
+Hyland, K. (2005). *Metadiscourse: Exploring interaction in writing*.
+Continuum.
