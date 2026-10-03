@@ -1,0 +1,11 @@
+id,annotator,hedges,boosters,certainty_1to5,hedge_terms,booster_terms,notes
+R20,model-assisted,2,0,4,يمكن; تقريبًا,—,Exact monthly amounts given with no hedge on the figures; only the closing family estimate is softened.
+R31,model-assisted,1,1,4,بشكل أساسي,تحديداً,Flat نعم opening; gives two target ages (11-13 and exactly 11) in the same sentence.
+R17,model-assisted,1,1,4,حتى الآن,وليس 10 سنوات,Emphatic contrast with the wrong figure; حتى الآن marks the claim as time-bound.
+R18,model-assisted,2,0,3,أساسًا; بصفة عامة,—,Eligibility rules are softened; ends with an explicit caveat (لا يعني تلقائيًا).
+R07,model-assisted,2,1,4,actuellement; généralement,même avec... reste 5 ans,"Firm on the figure, temporal hedge on its stability."
+R24,model-assisted,2,6,5,peut; un certain,ne peut pas non plus; aucune étude/aucune autorité; aucun impact; seuls; seules; en aucun cas,Strongly categorical myth debunking.
+R30,model-assisted,0,0,5,—,—,"All amounts stated flatly, including a 400 DH orphan rate with no source. The lexicon's one hedge ('selon la situation') introduces a breakdown, not uncertainty."
+R38,model-assisted,0,2,5,—,بالكامل; أي مساهمة,Flat description of benefits; no caveat.
+R08,model-assisted,5,0,3,principalement; notamment; peuvent; environ; près de,—,Several approximators; the v1 lexicon catches 2 of 5.
+R26,model-assisted,2,1,4,le cas échéant; éventuels,obligatoirement,'vous devez préparer' sets a firm tone; details are hedged.
