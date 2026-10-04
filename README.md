@@ -35,8 +35,9 @@ most official information in Morocco.
 *Certainty index = (boosters − hedges) per 100 words, lexicon version 1.*
 
 Both chatbots hedge less in Arabic than in French, and ChatGPT hedges more
-than Gemini. The pattern holds with a revised lexicon (version 2). With 10
-questions and one run each, this is a first look, not a finding.
+than Gemini. The pattern holds with a revised lexicon (version 2) and when
+modal verbs (*peut*, *يمكن*), which can also mean permission, are dropped.
+With 10 questions and one run each, this is a first look, not a finding.
 
 The validation check shows that the lexicon picks up boosters well but
 misses about a third of hedges, and that a confident tone often comes from
@@ -49,6 +50,7 @@ data/
   responses.csv         the 40 answers, with question, language, chatbot, date
   lexicon.csv           hedge / booster / evidence / verify patterns, FR and AR
   validation_coded.csv  second coding of 10 answers, with the words counted
+  validation_ids.csv    IDs of the 10 answers drawn for the second coding
 R/
   score_certainty.R     normalisation, pattern building and scoring
 audit.qmd               full report: method, results, validation, limitations

@@ -89,13 +89,22 @@ A few choices matter:
   become the same string. "Never" is only counted at the end of a clause.
 - Deontic markers (*il faut*, *يجب*) are left out. They tell the user what
   to do, not how sure the chatbot is.
+- *Peut* and *يمكن* are counted, but they do not always signal doubt. They
+  also express permission or ability ("qui peut l'avoir", "يمكن طلب
+  الوثيقة"). Second-person forms (*vous pouvez*, *يمكنك*) are not in the
+  lexicon, but a few third-person cases of this kind remain: 6 of the 15
+  French matches and 2 of the 3 Arabic ones. Because the French count is
+  larger, this could inflate French hedging, so the robustness check below
+  also drops modal verbs altogether.
 
 ## Measures
 
 For each answer: word count, number of hedges, boosters, evidence markers
 and verify prompts, whether it opens with a flat *Oui/Non* (*نعم/لا*), and a
 **certainty index** = (boosters − hedges) per 100 words. Rates are per 100
-words because Gemini writes longer answers.
+words because Gemini writes longer answers. The last column,
+`web_sources`, records whether the chatbot displayed links to web sources
+under its answer (noted at collection, not computed).
 
 ```{r score}
 scored <- score_certainty(responses, lexicon, lex_version = 1)
@@ -188,15 +197,14 @@ closes down alternatives (absolutes, exclusivity, emphatic negation).
 Deontic phrases (*il faut*, *يجب*) are not coded. The overall rating goes
 from 1 (very cautious throughout) to 5 (categorical, no caveat).
 
-```{r validation-sample}
-set.seed(2027)
+The subsample was drawn once with `set.seed(2027)`: three answers per
+chatbot × language cell, then 10 of those 12 at random. Random draws can
+change across `dplyr` versions, so the drawn IDs are saved in
+`data/validation_ids.csv` and read from there.
 
-validation_ids <- scored |>
-  group_by(chatbot, language) |>
-  slice_sample(n = 3) |>
-  ungroup() |>
-  slice_sample(n = 10) |>
-  pull(id)
+```{r validation-sample}
+validation_ids <- read_csv("data/validation_ids.csv",
+                           show_col_types = FALSE)$id
 
 validation <- read_csv("data/validation_coded.csv", show_col_types = FALSE) |>
   left_join(scored |> select(id, chatbot, language,
@@ -246,28 +254,36 @@ reason to pair it with human or model-based coding in the full study.
 
 ## Does the result survive a better lexicon?
 
-Version 2 adds the missing hedges. Because those terms were chosen after
-looking at the validation sample, version 2 is a robustness check, not a
-replacement.
+Two checks. Version 2 adds the missing hedges; because those terms were
+chosen after looking at the validation sample, it is a robustness check,
+not a replacement. The second check goes the other way: it removes the
+modal verbs (*peut* and *يمكن* rows) from version 1, the strictest test of
+whether non-doubt uses of these verbs drive the gap.
 
 ```{r robustness}
 scored_v2 <- score_certainty(responses, lexicon, lex_version = 2)
 
+lexicon_no_modal <- lexicon |>
+  filter(!(category == "hedge" & str_detect(pattern, "^(peut|يمكن)")))
+scored_no_modal <- score_certainty(responses, lexicon_no_modal, lex_version = 1)
+
 bind_rows(
-  scored    |> mutate(lexicon = "v1"),
-  scored_v2 |> mutate(lexicon = "v2")
+  scored          |> mutate(lexicon = "v1"),
+  scored_v2       |> mutate(lexicon = "v2"),
+  scored_no_modal |> mutate(lexicon = "no_modal")
 ) |>
   group_by(lexicon, chatbot, language) |>
-  summarise(hedges_100 = mean(hedges_100),
-            certainty  = mean(certainty_index), .groups = "drop") |>
-  pivot_wider(names_from = lexicon, values_from = c(hedges_100, certainty)) |>
+  summarise(hedges_100 = mean(hedges_100), .groups = "drop") |>
+  pivot_wider(names_from = lexicon, values_from = hedges_100) |>
+  select(chatbot, language, v1, v2, no_modal) |>
   kable(digits = 2,
         col.names = c("Chatbot", "Language", "Hedges /100w (v1)",
-                      "Hedges /100w (v2)", "Certainty (v1)", "Certainty (v2)"))
+                      "Hedges /100w (v2)", "Hedges /100w (v1, no modals)"))
 ```
 
-With either version, both chatbots hedge less in Arabic than in French, and
-ChatGPT hedges more than Gemini.
+In all three versions, both chatbots hedge less in Arabic than in French,
+and ChatGPT hedges more than Gemini. Without modal verbs the gap is
+smaller, so part of it comes from *peut*, but it does not disappear.
 
 # Limitations
 
@@ -276,6 +292,10 @@ ChatGPT hedges more than Gemini.
 - The Arabic lexicon is shorter than the French one. Part of any
   French–Arabic gap could come from the lexicon, not from the chatbots.
   The validation and version 2 reduce this risk but do not remove it.
+- Rates per 100 words are not neutral across the two languages. Arabic
+  attaches articles, prepositions and conjunctions to the next word, so the
+  same content takes fewer words. This raises Arabic rates and works
+  against the gap found here, but a per-sentence measure would be fairer.
 - The second coding was model-assisted. Independent human coding, ideally
   two coders per language, is needed before any claim goes beyond this first look.
 - A word list misses certainty carried by structure (lists of steps, bold
