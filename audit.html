@@ -2249,7 +2249,8 @@ vertical-align: -.125em;
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/score_certainty.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/score_certainty.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;output&quot;</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -2319,11 +2320,12 @@ vertical-align: -.125em;
 <li><em>قد</em> is only a hedge before an imperfect verb (<em>قد يصف</em>, “may prescribe”). Before a past verb it means the opposite (“indeed”), so the pattern requires a following ي, ت or ن.</li>
 <li>After diacritics are removed, <em>أبدًا</em> (“never”) and <em>ابدأ</em> (“start”) become the same string. “Never” is only counted at the end of a clause.</li>
 <li>Deontic markers (<em>il faut</em>, <em>يجب</em>) are left out. They tell the user what to do, not how sure the chatbot is.</li>
+<li><em>Peut</em> and <em>يمكن</em> are counted, but they do not always signal doubt. They also express permission or ability (“qui peut l’avoir”, “يمكن طلب الوثيقة”). Second-person forms (<em>vous pouvez</em>, <em>يمكنك</em>) are not in the lexicon, but a few third-person cases of this kind remain: 6 of the 15 French matches and 2 of the 3 Arabic ones. Because the French count is larger, this could inflate French hedging, so the robustness check below also drops modal verbs altogether.</li>
 </ul>
 </section>
 <section id="measures" class="level2">
 <h2 class="anchored" data-anchor-id="measures">Measures</h2>
-<p>For each answer: word count, number of hedges, boosters, evidence markers and verify prompts, whether it opens with a flat <em>Oui/Non</em> (<em>نعم/لا</em>), and a <strong>certainty index</strong> = (boosters − hedges) per 100 words. Rates are per 100 words because Gemini writes longer answers.</p>
+<p>For each answer: word count, number of hedges, boosters, evidence markers and verify prompts, whether it opens with a flat <em>Oui/Non</em> (<em>نعم/لا</em>), and a <strong>certainty index</strong> = (boosters − hedges) per 100 words. Rates are per 100 words because Gemini writes longer answers. The last column, <code>web_sources</code>, records whether the chatbot displayed links to web sources under its answer (noted at collection, not computed).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2529,34 +2531,29 @@ vertical-align: -.125em;
 <p>The lexicon only counts words; it does not understand them. To see what it misses, a random subsample of 10 answers (drawn from all four chatbot × language cells) was coded a second time, line by line, with the codebook below.</p>
 <p>This second coding was model-assisted. The codes are kept in <code>data/validation_coded.csv</code> with the exact words counted, so each decision can be checked. They are a first check on the lexicon, not a gold standard; independent human coding is the next step.</p>
 <p><strong>Codebook.</strong> A <em>hedge</em> is any expression that lowers the writer’s commitment to a claim (possibility, approximation, frequency, a claim marked as time-bound or partial). A <em>booster</em> is any expression that closes down alternatives (absolutes, exclusivity, emphatic negation). Deontic phrases (<em>il faut</em>, <em>يجب</em>) are not coded. The overall rating goes from 1 (very cautious throughout) to 5 (categorical, no caveat).</p>
+<p>The subsample was drawn once with <code>set.seed(2027)</code>: three answers per chatbot × language cell, then 10 of those 12 at random. Random draws can change across <code>dplyr</code> versions, so the drawn IDs are saved in <code>data/validation_ids.csv</code> and read from there.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2027</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>validation_ids <span class="ot">&lt;-</span> scored <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(chatbot, language) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(id)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>validation_ids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/validation_ids.csv&quot;</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>id</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>validation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/validation_coded.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(scored <span class="sc">|&gt;</span> <span class="fu">select</span>(id, chatbot, language,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">lex_hedges =</span> hedges, <span class="at">lex_boosters =</span> boosters,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                             certainty_index),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="st">&quot;id&quot;</span>)</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>validation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/validation_coded.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(scored <span class="sc">|&gt;</span> <span class="fu">select</span>(id, chatbot, language,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">lex_hedges =</span> hedges, <span class="at">lex_boosters =</span> boosters,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                             certainty_index),</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="st">&quot;id&quot;</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The coded file should match the sample drawn above.</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">setequal</span>(validation<span class="sc">$</span>id, validation_ids))</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>validation <span class="sc">|&gt;</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, chatbot, language, lex_hedges, hedges,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>         lex_boosters, boosters, certainty_index, certainty_1to5) <span class="sc">|&gt;</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Chatbot&quot;</span>, <span class="st">&quot;Lang.&quot;</span>, <span class="st">&quot;Hedges (lexicon)&quot;</span>,</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Hedges (coder)&quot;</span>, <span class="st">&quot;Boosters (lexicon)&quot;</span>,</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Boosters (coder)&quot;</span>, <span class="st">&quot;Certainty index&quot;</span>, <span class="st">&quot;Rating 1-5&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The coded file should match the sample drawn above.</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">setequal</span>(validation<span class="sc">$</span>id, validation_ids))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>validation <span class="sc">|&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, chatbot, language, lex_hedges, hedges,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>         lex_boosters, boosters, certainty_index, certainty_1to5) <span class="sc">|&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Chatbot&quot;</span>, <span class="st">&quot;Lang.&quot;</span>, <span class="st">&quot;Hedges (lexicon)&quot;</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Hedges (coder)&quot;</span>, <span class="st">&quot;Boosters (lexicon)&quot;</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Boosters (coder)&quot;</span>, <span class="st">&quot;Certainty index&quot;</span>, <span class="st">&quot;Rating 1-5&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -2750,23 +2747,28 @@ vertical-align: -.125em;
 <p>Boosters are picked up well. Hedges are not: the lexicon misses about a third of them, mostly approximators and qualifiers such as <em>principalement, notamment, actuellement, près de</em> and <em>أساسًا، بصفة عامة، حتى الآن</em>. The weak link between the index and the overall rating also shows that a confident tone often comes from the content (a list of exact amounts with no source) rather than from particular words. That is a limit of any word list, and a reason to pair it with human or model-based coding in the full study.</p>
 <section id="does-the-result-survive-a-better-lexicon" class="level2">
 <h2 class="anchored" data-anchor-id="does-the-result-survive-a-better-lexicon">Does the result survive a better lexicon?</h2>
-<p>Version 2 adds the missing hedges. Because those terms were chosen after looking at the validation sample, version 2 is a robustness check, not a replacement.</p>
+<p>Two checks. Version 2 adds the missing hedges; because those terms were chosen after looking at the validation sample, it is a robustness check, not a replacement. The second check goes the other way: it removes the modal verbs (<em>peut</em> and <em>يمكن</em> rows) from version 1, the strictest test of whether non-doubt uses of these verbs drive the gap.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>scored_v2 <span class="ot">&lt;-</span> <span class="fu">score_certainty</span>(responses, lexicon, <span class="at">lex_version =</span> <span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  scored    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">lexicon =</span> <span class="st">&quot;v1&quot;</span>),</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  scored_v2 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">lexicon =</span> <span class="st">&quot;v2&quot;</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(lexicon, chatbot, language) <span class="sc">|&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">hedges_100 =</span> <span class="fu">mean</span>(hedges_100),</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">certainty  =</span> <span class="fu">mean</span>(certainty_index), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> lexicon, <span class="at">values_from =</span> <span class="fu">c</span>(hedges_100, certainty)) <span class="sc">|&gt;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Chatbot&quot;</span>, <span class="st">&quot;Language&quot;</span>, <span class="st">&quot;Hedges /100w (v1)&quot;</span>,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Hedges /100w (v2)&quot;</span>, <span class="st">&quot;Certainty (v1)&quot;</span>, <span class="st">&quot;Certainty (v2)&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lexicon_no_modal <span class="ot">&lt;-</span> lexicon <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(category <span class="sc">==</span> <span class="st">&quot;hedge&quot;</span> <span class="sc">&amp;</span> <span class="fu">str_detect</span>(pattern, <span class="st">&quot;^(peut|يمكن)&quot;</span>)))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>scored_no_modal <span class="ot">&lt;-</span> <span class="fu">score_certainty</span>(responses, lexicon_no_modal, <span class="at">lex_version =</span> <span class="dv">1</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  scored          <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">lexicon =</span> <span class="st">&quot;v1&quot;</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  scored_v2       <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">lexicon =</span> <span class="st">&quot;v2&quot;</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  scored_no_modal <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">lexicon =</span> <span class="st">&quot;no_modal&quot;</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(lexicon, chatbot, language) <span class="sc">|&gt;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">hedges_100 =</span> <span class="fu">mean</span>(hedges_100), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> lexicon, <span class="at">values_from =</span> hedges_100) <span class="sc">|&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(chatbot, language, v1, v2, no_modal) <span class="sc">|&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Chatbot&quot;</span>, <span class="st">&quot;Language&quot;</span>, <span class="st">&quot;Hedges /100w (v1)&quot;</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Hedges /100w (v2)&quot;</span>, <span class="st">&quot;Hedges /100w (v1, no modals)&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -2775,8 +2777,7 @@ vertical-align: -.125em;
 <col style="width: 10%">
 <col style="width: 21%">
 <col style="width: 21%">
-<col style="width: 18%">
-<col style="width: 18%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2784,8 +2785,7 @@ vertical-align: -.125em;
 <th style="text-align: left;">Language</th>
 <th style="text-align: right;">Hedges /100w (v1)</th>
 <th style="text-align: right;">Hedges /100w (v2)</th>
-<th style="text-align: right;">Certainty (v1)</th>
-<th style="text-align: right;">Certainty (v2)</th>
+<th style="text-align: right;">Hedges /100w (v1, no modals)</th>
 </tr>
 </thead>
 <tbody>
@@ -2794,38 +2794,34 @@ vertical-align: -.125em;
 <td style="text-align: left;">AR</td>
 <td style="text-align: right;">1.03</td>
 <td style="text-align: right;">1.35</td>
-<td style="text-align: right;">-1.03</td>
-<td style="text-align: right;">-1.35</td>
+<td style="text-align: right;">0.77</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ChatGPT</td>
 <td style="text-align: left;">FR</td>
 <td style="text-align: right;">1.85</td>
 <td style="text-align: right;">2.72</td>
-<td style="text-align: right;">-1.85</td>
-<td style="text-align: right;">-2.72</td>
+<td style="text-align: right;">1.04</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Gemini</td>
 <td style="text-align: left;">AR</td>
 <td style="text-align: right;">0.31</td>
 <td style="text-align: right;">0.44</td>
-<td style="text-align: right;">0.23</td>
-<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.31</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Gemini</td>
 <td style="text-align: left;">FR</td>
 <td style="text-align: right;">0.71</td>
 <td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.11</td>
-<td style="text-align: right;">-0.06</td>
+<td style="text-align: right;">0.51</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>With either version, both chatbots hedge less in Arabic than in French, and ChatGPT hedges more than Gemini.</p>
+<p>In all three versions, both chatbots hedge less in Arabic than in French, and ChatGPT hedges more than Gemini. Without modal verbs the gap is smaller, so part of it comes from <em>peut</em>, but it does not disappear.</p>
 </section>
 </section>
 <section id="limitations" class="level1">
@@ -2833,6 +2829,7 @@ vertical-align: -.125em;
 <ul>
 <li>10 questions and one run each. Answers change between runs, so a real audit needs repeated runs per question.</li>
 <li>The Arabic lexicon is shorter than the French one. Part of any French–Arabic gap could come from the lexicon, not from the chatbots. The validation and version 2 reduce this risk but do not remove it.</li>
+<li>Rates per 100 words are not neutral across the two languages. Arabic attaches articles, prepositions and conjunctions to the next word, so the same content takes fewer words. This raises Arabic rates and works against the gap found here, but a per-sentence measure would be fairer.</li>
 <li>The second coding was model-assisted. Independent human coding, ideally two coders per language, is needed before any claim goes beyond this first look.</li>
 <li>A word list misses certainty carried by structure (lists of steps, bold text, a flat “Non.” on its own line). The flat-opening variable only partly covers this.</li>
 <li>Both chatbots were used without an account, which matches what many users see but not what paying users get.</li>
