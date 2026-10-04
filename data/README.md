@@ -23,3 +23,7 @@ validation; version 2 adds the terms identified during validation.
 **validation_coded.csv** — second coding of a random subsample of 10 answers:
 hedge and booster counts, the exact terms counted, an overall certainty
 rating (1 = very cautious, 5 = categorical) and short notes.
+
+**validation_ids.csv** — IDs of the 10 answers drawn for the second coding
+(drawn once with `set.seed(2027)`, saved so the sample does not depend on
+the `dplyr` version).
